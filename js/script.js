@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 // Plays a single round of rock paper scissors
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCaser()
+    playerSelection = playerSelection.toLowerCase()
     if (playerSelection === computerSelection) {
         return "It's a Tie!"
     } else if (playerSelection === "rock") {
@@ -37,3 +37,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+// Plays 5 rounds of rock paper scissors
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Enter rock, paper, scissors:")
+        console.log(playRound(playerSelection, getComputerChoice()))
+    }
+}
+
+game();
