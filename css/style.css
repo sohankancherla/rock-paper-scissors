@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice:wght@400&display=swap');
 
 body {
     height: 100vh;
@@ -54,7 +55,9 @@ p {
 #vs {
     display: flex;
     align-items: center;
-    padding: 5% 15%;
+    padding: 5% 12%;
+    font-family: Bungee Spice, san-serif;
+    font-size: 80px;
 }
 
 .player-select {
