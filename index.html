@@ -8,6 +8,37 @@
     <script src="./js/script.js"></script>
 </head>
 <body>
-    
+    <header class="header">
+        <h1 class="title">Rock Paper Scissors</h1>
+    </header>
+    <main class="main">
+        <section class="messages">
+            <h2 id="round-counter">Round 1</h2>
+            <p id="result-message">First to 3 wins!</p>
+        </section>
+        <section class="game">
+            <div class="score-container" id="player">
+                <span id="player-score">0</span>
+                <img src="./images/unknown.png" alt="question mark">
+                <span>You</span>
+            </div>
+            <div id="vs">
+                <span id="vs-text">VS</span>
+            </div>
+            <div class="score-container" id="cpu">
+                <span id="cpu-score">0</span>
+                <img src="./images/unknown.png" alt="question mark">
+                <span>CPU</span>
+            </div>
+        </section>
+        <section class="player-select">
+            <p id="instructions">Please select your choice:</p>
+            <div class="button-container">
+                <button class="button" id="rock"><img src="./images/rock.png" alt="rock"></button>
+                <button class="button" id="paper"><img src="./images/paper.png" alt="paper"></button>
+                <button class="button" id="scissors"><img src="./images/scissors.png" alt="scissors"></button>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
