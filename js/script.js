@@ -3,38 +3,63 @@ function getComputerChoice() {
     return Math.floor(Math.random() * 3) + 1;
 }
 
-// Plays a single round of rock paper scissors
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        console.log("It's a Tie!");
-    } else if (playerSelection === 1) {
-        if (computerSelection === 2) {
-            console.log("You Lose! Paper beats Rock");
-        } else {
-            console.log("You Win! Rock beats Scissors");
+// Change the player and CPU image based on their choice
+function changeImage(player, choice) {
+    if (player) {
+        if (choice===1) {
+            playerChoiceImg.src = "./images/rock128.png";
+            playerChoiceImg.alt = "rock";
         }
-    } else if (playerSelection === 2) {
-        if (computerSelection === 3) {
-            console.log("You Lose! Scissors beats Paper");
-        } else {
-            console.log("You Win! Paper beats Rock");
+        else if (choice===2) {
+            playerChoiceImg.src = "./images/paper128.png";
+            playerChoiceImg.alt = "paper";
         }
-    } else {
-        if (computerSelection === 3) {
-            console.log("You Lose! Rock beats Scissors");
-        } else {
-            console.log("You Win! Scissors beats Paper");
+        else {
+            playerChoiceImg.src = "./images/scissors128.png";
+            playerChoiceImg.alt = "scissors";
+        }
+    }
+    else {
+        if (choice===1) {
+            computerChoiceImg.src = "./images/rock128.png";
+            computerChoiceImg.alt = "rock";
+        }
+        else if (choice===2) {
+            computerChoiceImg.src = "./images/paper128.png";
+            computerChoiceImg.alt = "paper";
+        }
+        else {
+            computerChoiceImg.src = "./images/scissors128.png";
+            computerChoiceImg.alt = "scissors";
         }
     }
 }
 
+// Plays a single round of rock paper scissors
+function playRound(playerSelection, computerSelection) {
+    roundNum++;
+    roundLabel.textContent = "Round " + roundNum;
+    changeImage(true, playerSelection);
+    changeImage(false, computerSelection);
+    
+}
+
 let playerScore = 0;
 let computerScore = 0;
+let roundNum = 0;
+
+const roundLabel = document.querySelector("#round-counter");
+const resultLabel = document.querySelector("#result-message");
+const playerScoreLabel = document.querySelector("#player-score");
+const playerChoiceImg = document.querySelector("#player-choice");
+console.log(playerChoiceImg)
+const computerScoreLabel = document.querySelector("#cpu-score");
+const computerChoiceImg = document.querySelector("#cpu-choice");
 
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 
-rockButton.addEventListener("click", () => playRound(1, getComputerChoice()))
-paperButton.addEventListener("click", () => playRound(2, getComputerChoice()))
-scissorsButton.addEventListener("click", () => playRound(3, getComputerChoice()))
+rockButton.addEventListener("click", () => playRound(1, getComputerChoice()));
+paperButton.addEventListener("click", () => playRound(2, getComputerChoice()));
+scissorsButton.addEventListener("click", () => playRound(3, getComputerChoice()));
