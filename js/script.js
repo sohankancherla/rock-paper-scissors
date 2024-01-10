@@ -29,10 +29,10 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// Plays 5 rounds of rock paper scissors
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Enter rock, paper, scissors:")
-        console.log(playRound(playerSelection, getComputerChoice()))
-    }
-}
+
+rockButton = document.querySelector("#rock");
+paperButton = document.querySelector("#paper");
+scissorsButton = document.querySelector("#scissors");
+
+let playerScore = 0;
+let computerScore = 0;
