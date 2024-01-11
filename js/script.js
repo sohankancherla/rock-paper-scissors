@@ -41,7 +41,34 @@ function playRound(playerSelection, computerSelection) {
     roundLabel.textContent = "Round " + roundNum;
     changeImage(true, playerSelection);
     changeImage(false, computerSelection);
-    
+    // win = 1, lose = 0, tie = 2
+    let win = 1;
+    if (playerSelection===computerSelection) {
+        resultLabel.style.color = "#ffffff";
+        resultLabel.textContent = "It's a Tie!"
+        win = 2;
+    }
+    else if (playerSelection===1 && computerSelection===2) {
+        win = 0;
+    }
+    else if (playerSelection===2 && computerSelection===3) {
+        win = 0;
+    }
+    else if (playerSelection===3 && computerSelection===1) {
+        win = 0;
+    }
+    if (win===0) {
+        computerScore++;
+        resultLabel.style.color = "#b00020"
+        resultLabel.textContent = "You lost!";
+        computerScoreLabel.textContent = computerScore;
+    }
+    else if (win===1) {
+        playerScore++;
+        resultLabel.style.color = "#018786"
+        resultLabel.textContent = "You won!";
+        playerScoreLabel.textContent = playerScore;
+    }
 }
 
 let playerScore = 0;
@@ -52,7 +79,6 @@ const roundLabel = document.querySelector("#round-counter");
 const resultLabel = document.querySelector("#result-message");
 const playerScoreLabel = document.querySelector("#player-score");
 const playerChoiceImg = document.querySelector("#player-choice");
-console.log(playerChoiceImg)
 const computerScoreLabel = document.querySelector("#cpu-score");
 const computerChoiceImg = document.querySelector("#cpu-choice");
 
