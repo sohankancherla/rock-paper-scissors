@@ -35,6 +35,21 @@ function changeImage(player, choice) {
     }
 }
 
+// End the game when CPU or player wins
+function endGame(playerWin) {
+    console.log("test")
+    playerSelectContainer.style.display = "none";
+    if (playerWin) {
+        endMessage.style.color = "#018786";
+        endMessage.textContent = "Congratulations, you win!"
+    }
+    else {
+        endMessage.style.color = "#b00020";
+        endMessage.textContent = "Unlucky, you lost!"
+    }
+    replayContainer.style.display = "flex";
+}
+
 // Plays a single round of rock paper scissors
 function playRound(playerSelection, computerSelection) {
     roundNum++;
@@ -69,6 +84,13 @@ function playRound(playerSelection, computerSelection) {
         resultLabel.textContent = "You won!";
         playerScoreLabel.textContent = playerScore;
     }
+    console.log(playerScore)
+    if (playerScore>=3) {
+        endGame(true);
+    }
+    else if (computerScore>=3) {
+        endGame(false);
+    }
 }
 
 let playerScore = 0;
@@ -89,3 +111,11 @@ const scissorsButton = document.querySelector("#scissors");
 rockButton.addEventListener("click", () => playRound(1, getComputerChoice()));
 paperButton.addEventListener("click", () => playRound(2, getComputerChoice()));
 scissorsButton.addEventListener("click", () => playRound(3, getComputerChoice()));
+
+// Needed to restart the game
+const playerSelectContainer = document.querySelector(".player-select");
+const replayContainer = document.querySelector(".replay");
+const endMessage = document.querySelector("#game-over");
+const playAgain = document.querySelector("#play-again");
+
+playAgain.addEventListener("click", () => location.reload());
